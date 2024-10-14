@@ -14,7 +14,7 @@ python cut_bbox.py -d "./data/yolo_barcode_dataset"
 python train_yolo.py -c ./data/yolo_barcode_dataset/data.yaml -b yolo11m.pt
 ```
 
-Для обучения сегментатора:
+Для обучения сегментатора на исходном наборе данных:
 ```
 python train_yolo.py -c ./data/yolo_barcode_dataset/data.yaml -b yolo11m-seg.pt
 ```
@@ -26,12 +26,12 @@ python train_yolo.py -c ./data/yolo_barcode_dataset_cut/data.yaml -b yolo11m-seg
 
 Скрипт test_yolo.py подсчитывает среднее IoU для набора данных и считает метрики Precision, Recall, mAP50 и mAP50-95.
 Отчёт 
-Для получения метрик работы сегментационной модели на валидации:
+Для получения метрик работы сегментационной модели для полного набора данных на валидации:
 ```
 python test_yolo.py -m ./data/models/segment_train/weights/best.pt -c ./data/yolo_barcode_dataset/data.yaml -d ./data/yolo_barcode_dataset/Validation
 ```
 
-Для получения метрик работы сегментационной модели на тесте:
+Для получения метрик работы сегментационной модели для полного набора данных на тесте:
 ```
 python test_yolo.py -m ./data/models/segment_train/weights/best.pt -c ./data/yolo_barcode_dataset/data_test.yaml -d ./data/yolo_barcode_dataset/Testing
 ```
