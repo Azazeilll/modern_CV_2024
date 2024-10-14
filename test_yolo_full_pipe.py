@@ -24,6 +24,8 @@ def load_markup(path, img_shape):
     return gt_points
 
 def test_yolo_detections(model_detection_path, model_segmentation_path, data_dir, out_path):
+    if not out_path.exists():
+        out_path.mkdir()
     # Load a model
     model_detection = YOLO(model_detection_path)
     model_segmentation = YOLO(model_segmentation_path)
